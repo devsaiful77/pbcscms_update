@@ -1,0 +1,2 @@
+ALTER TABLE `sms_email_templates` ADD `user_notify_sms` VARCHAR(200) NULL AFTER `non_cust_email`, ADD `user_notify_email` TEXT NULL AFTER `user_notify_sms`;
+ALTER TABLE `sms_email_template_tmps` ADD `user_notify_sms` VARCHAR(200) NULL AFTER `ip`, ADD `user_notify_email` TEXT NULL AFTER `user_notify_sms`;

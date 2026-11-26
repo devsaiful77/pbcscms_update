@@ -1,0 +1,91 @@
+{
+    "data": {
+        "requestId": "20210128MPP0000056",
+        "responseId": "Dvlj6J8DMn1YW5honsOa",
+        "responseDateTime": "2024-11-25T16:42:39+06:00",
+        "sourceChannel": "MIB",
+        "cardNumber": "406752xxxxxx6889",
+        "statementDetailList": [
+            {
+                "tranCrdNo": "406752xxxxxx6889",
+                "basicSuppInd": "B",
+                "tranDate": "20240806",
+                "postDate": "20240817",
+                "tranDesc": "Misc fees",
+                "billingCcy": "050",
+                "billingAmount": 46.16,
+                "tranCcy": "050",
+                "tranAmt": 46.16,
+                "tranApprCode": "",
+                "transId": "000000066381",
+                "transSign": "D",
+                "transactionTime": "12:00:00",
+                "refSeq": "1",
+                "trnType": "32",
+                "internalStan": null,
+                "externalStan": null
+            },
+            {
+                "tranCrdNo": "406752xxxxxx6889",
+                "basicSuppInd": "B",
+                "tranDate": "20240806",
+                "postDate": "20240817",
+                "tranDesc": "Purchase Mig",
+                "billingCcy": "050",
+                "billingAmount": 13188.00,
+                "tranCcy": "050",
+                "tranAmt": 13188.00,
+                "tranApprCode": "",
+                "transId": "000000066382",
+                "transSign": "D",
+                "transactionTime": "12:00:00",
+                "refSeq": "1",
+                "trnType": "NM",
+                "internalStan": null,
+                "externalStan": null
+            },
+            {
+                "tranCrdNo": "406752xxxxxx6889",
+                "basicSuppInd": "B",
+                "tranDate": "20240810",
+                "postDate": "20240817",
+                "tranDesc": "Purchase",
+                "billingCcy": "050",
+                "billingAmount": 2200.00,
+                "tranCcy": "050",
+                "tranAmt": 2200.00,
+                "tranApprCode": "",
+                "transId": "000000007318",
+                "transSign": "D",
+                "transactionTime": "12:00:00",
+                "refSeq": "15",
+                "trnType": "01",
+                "internalStan": null,
+                "externalStan": null
+            },
+            {
+                "tranCrdNo": "406752xxxxxx6889",
+                "basicSuppInd": "B",
+                "tranDate": "20240810",
+                "postDate": "20240817",
+                "tranDesc": "Purchase",
+                "billingCcy": "050",
+                "billingAmount": 1000.00,
+                "tranCcy": "050",
+                "tranAmt": 1000.00,
+                "tranApprCode": "",
+                "transId": "000000007323",
+                "transSign": "D",
+                "transactionTime": "12:00:00",
+                "refSeq": "18",
+                "trnType": "01",
+                "internalStan": null,
+                "externalStan": null
+            }
+        ]
+    },
+    "responseCode": 200,
+    "messages": [
+        "Operation Successful"
+    ]
+}

@@ -1,0 +1,18 @@
+1. url check in vendor mail file === $curl_URL_Param = "http://primecms.test/send-vendor-email?user=VendormailUsr&passwd=PwdVendor@!123&id=" . urlencode($id);
+
+
+2. credential change like user password in Modules\Requisition\App\Service;
+
+$mail->SMTPSecure = 'tls';                     
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+// $mail->addReplyTo('shajid.hasibur1996@gmail.com', 'Md. Hasibur Rahman Shajid');
+$mail->Username = 'hasibur.rahman.shajid01@gmail.com';
+$mail->Password = 'anttheripfchhkwr';
+$mail->SMTPDebug = 0;
+
+// TCP port to connect to
+$mail->From = $from;
+$mail->FromName = 'UAT-Prime Bank Limited.';
+$mail->Sender = $from;
+

@@ -1,0 +1,1 @@
+ALTER TABLE `api_credential` ADD `token_url` TEXT NOT NULL AFTER `language`;

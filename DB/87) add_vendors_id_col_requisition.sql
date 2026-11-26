@@ -1,0 +1,1 @@
+ALTER TABLE requisition ADD COLUMN vendors_id VARCHAR(255) NULL AFTER status;

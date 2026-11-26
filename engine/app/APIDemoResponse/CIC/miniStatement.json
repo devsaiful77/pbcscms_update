@@ -1,0 +1,34 @@
+{
+    "data": {
+        "requestId": "20210128MPP0000056",
+        "responseId": "fTrvzJXm8NWPLJ1VsNIh",
+        "responseDateTime": "2021-07-05T18:40:31+06:00",
+        "sourceChannel": "MIB",
+        "cardNumber": "406752xxxxxx9074",
+        "cardCurrency": "050",
+        "miniStatementDetails": [
+            {
+                "transactionDate": "07-04-2021",
+                "descriptionOfTransaction": "Through PrimeBank Account Interest PMI36",
+                "transactionCurrency": "50",
+                "transactionAmount": 7784.640
+            },
+            {
+                "transactionDate": "07-04-2021",
+                "descriptionOfTransaction": "Through PrimeBank Account Interest PMI36",
+                "transactionCurrency": "50",
+                "transactionAmount": 7784.640
+            },
+            {
+                "transactionDate": "07-04-2021",
+                "descriptionOfTransaction": "Through PrimeBank Account Interest PMI36",
+                "transactionCurrency": "50",
+                "transactionAmount": 7784.640
+            }
+        ]
+    },
+    "responseCode": 200,
+    "messages": [
+        "Operation Successful"
+    ]
+}

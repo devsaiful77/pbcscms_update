@@ -1,0 +1,60 @@
+URL =https://pblcard-uat1.primebank.com.bd:8443/card-api/v2/mini/statement
+
+Request:
+{
+  "requestDateTime": "18/11/2026",
+  "requestId": "20210128MPP0015276",
+  "sourceChannel": "MIB",
+  "cardNumber": "406752xxxxxx9880",
+  "cifNumber": "391866363",
+  "cardCurrency":"050"
+}
+
+Response:
+
+{
+    "data": {
+        "requestId": "20210128MPP0015276",
+        "responseId": "bwuuRHiu46CYLiG1kNYZ",
+        "responseDateTime": "2026-11-18T15:18:16+06:00",
+        "sourceChannel": "MIB",
+        "cardNumber": "406752xxxxxx9880",
+        "cardCurrency": "050",
+        "miniStatementDetails": [
+            {
+                "transactionDate": "20261117",
+                "descriptionOfTransaction": "Automat Deposit",
+                "transactionCurrency": "050",
+                "transactionAmount": "550.00"
+            },
+            {
+                "transactionDate": "20261117",
+                "descriptionOfTransaction": "Automat Deposit",
+                "transactionCurrency": "050",
+                "transactionAmount": "16.00"
+            },
+            {
+                "transactionDate": "20261117",
+                "descriptionOfTransaction": "Automat Deposit",
+                "transactionCurrency": "050",
+                "transactionAmount": "800.00"
+            },
+            {
+                "transactionDate": "20261117",
+                "descriptionOfTransaction": "Automat Deposit",
+                "transactionCurrency": "050",
+                "transactionAmount": "73.00"
+            },
+            {
+                "transactionDate": "20261117",
+                "descriptionOfTransaction": "Automat Deposit",
+                "transactionCurrency": "050",
+                "transactionAmount": "500.00"
+            }
+        ]
+    },
+    "responseCode": 200,
+    "messages": [
+        "Operation Successful"
+    ]
+}

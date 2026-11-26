@@ -1,0 +1,1 @@
+ALTER TABLE `issue_config` ADD COLUMN `is_readonly` TINYINT(1) NOT NULL DEFAULT '0' AFTER `is_required`;

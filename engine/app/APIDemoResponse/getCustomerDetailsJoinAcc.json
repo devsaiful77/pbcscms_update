@@ -1,0 +1,68 @@
+{
+    "data": {
+        "accountNumber": "2141217001036",
+        "accountTitle": "ABUL BASHAR AND TIATUL KHATUN",
+        "accounts": [
+            {
+                "customerId": "1221167",
+                "name": "SARDER ABUL BASHAR-TIATUL KHATUN",
+                "dob": "19600510",
+                "gender": "FEMALE",
+                "cusLegalDoc": 88998989989,
+                "fathersName": "SAIDUL IBN HASIB SOHEL BISSAS",
+                "mothersName": "FATEMATUZ ZAHURA AKTER SWEETY",
+                "contactNo": "+8801819601688",
+                "address": "47, EAST RAJABAZAR (1ST FLOOR),TEJGAON,DHAKA-1215,BANGLADESH",
+                "email": "saiful@gmail.com",
+                "occupation": "Profession",
+                "occupationNature": null
+            },
+            {
+                "customerId": "1221167",
+                "name": "SARDER ABUL BASHAR-TIATUL KHATUN",
+                "dob": "19600510",
+                "gender": "FEMALE",
+                "cusLegalDoc": 88998989989,
+                "fathersName": "SAIDUL IBN HASIB SOHEL BISSAS",
+                "mothersName": "FATEMATUZ ZAHURA AKTER SWEETY",
+                "contactNo": "+8801819601688",
+                "address": "47, EAST RAJABAZAR (1ST FLOOR),TEJGAON,DHAKA-1215,BANGLADESH",
+                "email": "saiful@gmail.com",
+                "occupation": "Profession",
+                "occupationNature": null
+            },
+            {
+                "customerId": "1221167",
+                "name": "SARDER ABUL BASHAR-TIATUL KHATUN",
+                "dob": "19600510",
+                "gender": "FEMALE",
+                "cusLegalDoc": 88998989989,
+                "fathersName": "SAIDUL IBN HASIB SOHEL BISSAS",
+                "mothersName": "FATEMATUZ ZAHURA AKTER SWEETY",
+                "contactNo": "+8801819601688",
+                "address": "47, EAST RAJABAZAR (1ST FLOOR),TEJGAON,DHAKA-1215,BANGLADESH",
+                "email": "saiful@gmail.com",
+                "occupation": "Profession",
+                "occupationNature": null
+            }
+        ],
+        "nomineeAccounts": [
+            {
+                "nomineeName": "MD Saiful Islam Munna",
+                "nomineeLegalDoc": "9900909",
+                "nomineeRelation": "SON",
+                "nomineeShare": "50"
+            },
+            {
+                "nomineeName": "MD Saiful Islam Munna",
+                "nomineeLegalDoc": "9900909",
+                "nomineeRelation": "SON",
+                "nomineeShare": "50"
+            }
+        ]
+    },
+    "responseCode": 200,
+    "messages": [
+        "Operation Successful"
+    ]
+}

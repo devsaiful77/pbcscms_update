@@ -1,0 +1,159 @@
+=====================================================================
+ Schedule-Escalation.php — কিভাবে কাজ করে
+=====================================================================
+
+সংক্ষেপে:
+  এটা একটা cron/scheduler script। এটা খোলা (pending) reference/ticket
+  গুলো খুঁজে বের করে, প্রতিটার জন্য Laravel app-এর
+  /sendEscalationEmail URL hit করে। Laravel সেখানে হিসাব করে ticket টা
+  কত working-minute ধরে পড়ে আছে, SLA পার হলে issue_breaches table-এ
+  entry দেয় আর escalation email "queue" করে (outgoing email table-এ)।
+
+
+---------------------------------------------------------------------
+ ফাইল গুলো
+---------------------------------------------------------------------
+  1. Schedule-Escalation.php                          (root, standalone script)
+  2. engine/routes/web.php:17                         (route)
+  3. engine/app/Http/Controllers/EscalationEmailController.php
+                                                      (working time হিসাব)
+  4. engine/app/Helpers/core.php:708  issue_breach()  (SLA check + breach entry)
+     core.php:851  sentSubgroup / sentGroup / sentDepartment / sentDivision
+     core.php:979  emailOutgoing()                    (email queue-তে বসায়)
+
+
+---------------------------------------------------------------------
+ STEP 1: Schedule-Escalation.php (script)
+---------------------------------------------------------------------
+  a) timezone Asia/Dhaka set করে।
+  b) engine/config/db_credential.php থেকে DB credential নেয়
+     ($DB_HOST1, $DB_PORT1, $DB_DATABASE1, $DB_USERNAME1,
+      $DB_PASSWORD1 — password base64 decode করা হয়)।
+  c) PDO দিয়ে MySQL connect করে।
+  d) getOutgoingMessages() — এই query চালায়:
+
+       SELECT reference_number FROM reference
+       WHERE (reference_number LIKE 'S%' OR reference_number LIKE 'C%')
+         AND id > 10
+         AND form_status NOT IN (-1,-2,11,12)
+
+     অর্থাৎ S/C দিয়ে শুরু হওয়া, এখনও close/reject হয়নি এমন সব ticket।
+
+  e) sendEscalationMail() — প্রতিটা reference-এর জন্য cURL GET:
+
+       http://primecms.test/sendEscalationEmail
+           ?user=escmailusr&passwd=Pwd@!123&ref_ref=<reference_number>
+
+     (timeout: connect 10s, total 20s; SSL verify off)
+
+
+---------------------------------------------------------------------
+ STEP 2: EscalationEmailController@sendEscalationEmail
+---------------------------------------------------------------------
+  a) user/passwd check (escmailusr / Pwd@!123) আর ref_ref খালি না।
+  b) reference-এর start time বের করে:
+       - শেষ approved comment (comments.isapproved = 1, MAX id) এর time
+       - comment না থাকলে reference.date
+     (form_status = 11 হলে কিছুই করে না)
+  c) start time থেকে এখন পর্যন্ত "working time" হিসাব (minute-এ):
+       - working_days table (status = 1) → ছুটির দিন বাদ
+       - working_hours table → office_from / office_to
+         (না থাকলে default 10:00:00 – 18:00:00)
+       - মাঝের পুরো working day প্রতি 8 ঘণ্টা (hardcoded 8)
+       - প্রথম দিন: start time → office_to (বা একই দিন হলে এখন পর্যন্ত)
+       - শেষ দিন (আজ): office_from → এখন (office_to পার হলে পুরো দিন)
+       queueDurationInMinutes = (মোট ঘণ্টা * 60) + মোট মিনিট
+  d) issue_breach($ref, $queueDurationInMinutes) call করে
+     → true হলে "Success", না হলে "Failed" return।
+
+
+---------------------------------------------------------------------
+ STEP 3: issue_breach()  (core.php:708)
+---------------------------------------------------------------------
+  reference + issue_workflows join করে issue-এর flow_type দেখে।
+  একটা ticket সর্বোচ্চ 4 বার escalate হয় (issue_breaches count < 4)।
+
+  [A] flow_type == FORWARD
+      - SLA = issue_workflows.complain_sla_time
+      - প্রতিটা আগের breach-এর জন্য settings.forward_time যোগ হয়
+          threshold = complain_sla_time + (আগের breach সংখ্যা × forward_time)
+
+  [B] অন্য flow (maker-checker)
+      - SLA = sla_maker + sla_checker  (issue_group_workflows থেকে,
+        বর্তমান subgroup-এর জন্য)
+      - threshold = SLA × (আগের breach সংখ্যা + 1)
+      - breach count শুধু বর্তমান subgroup ধরে গোনা হয়
+
+  যদি working-minutes > threshold:
+      issue_breaches-এ নতুন row insert
+        (issue_id, reference_no, subgroup_id, group_id, department_id,
+         division_id, breach_time, time, is_sent_* flag)
+      তারপর কততম breach সেই অনুযায়ী email যায়:
+
+        1ম breach → sentSubgroup()   → subgroup-এর user যাদের
+                                        user_units.is_email_allow = 1
+        2য় breach → sentGroup()      → group head
+                                        (user_units.is_group_info_head = 1)
+        3য় breach → sentDepartment() → department head
+                                        (user_units.is_department_head = 1)
+        4র্থ breach → sentDivision() → division head
+                                        (user_units.is_division_head = 1)
+
+      সব ক্ষেত্রে users.status = 1 এবং email খালি না হতে হবে।
+
+
+---------------------------------------------------------------------
+ STEP 4: emailOutgoing()  (core.php:979)
+---------------------------------------------------------------------
+  - SMSEmail table-এর শেষ row-এর escalation_email template নেয়
+  - placeholder replace:
+        {reference_no} → reference number
+        {form_request} → issue name (unit_items.name)
+        {group_name}   → subgroup name + (Maker)/(Checker)
+  - OutgoingEMAIL table-এ insert করে:
+        subject = 'Escalation Email', status = '3', senttime = ''
+  - এখানে সরাসরি mail পাঠানো হয় না; অন্য email consumer/scheduler
+    এই queue থেকে mail পাঠায়।
+
+
+---------------------------------------------------------------------
+ পুরো flow এক নজরে
+---------------------------------------------------------------------
+  Cron
+   └─ Schedule-Escalation.php
+        ├─ DB থেকে open ticket list (S%/C%)
+        └─ প্রতিটা ticket → GET /sendEscalationEmail?ref_ref=...
+              └─ EscalationEmailController
+                   ├─ শেষ approved comment / ref date থেকে working-minutes
+                   └─ issue_breach()
+                        ├─ SLA threshold পার? না → কিছু না
+                        └─ হ্যাঁ → issue_breaches insert
+                                 → subgroup / group / dept / division
+                                   (1ম/2য়/3য়/4র্থ breach)
+                                 → OutgoingEMAIL queue (status 3)
+
+
+---------------------------------------------------------------------
+ সমস্যা / খেয়াল রাখার বিষয় (code দেখে পাওয়া)
+---------------------------------------------------------------------
+  1. Schedule-Escalation.php:112 — প্রথম reference-এর response echo করে
+     die() করে দেয়। ফলে এখন শুধু list-এর প্রথম ticket process হয়,
+     বাকিগুলো হয় না। Debug code মনে হচ্ছে — loop চালাতে হলে
+     line 111-112 সরাতে হবে।
+  2. :106 — কোনো একটা cURL fail করলে die() → বাকি ticket skip।
+  3. :91 — URL hardcoded "http://primecms.test" (local)। Live/UAT-এ
+     চালানোর আগে ঠিক URL দিতে হবে (comment করা পুরনো URL গুলো
+     line 87-89-এ আছে)।
+  4. DB connect fail হলে catch block খালি, $dbh null থাকে →
+     getOutgoingMessages()-এ fatal error হবে।
+  5. Username/password URL-এ plain text আর controller-এ hardcoded।
+  6. Controller-এ ref_ref সরাসরি SQL-এ concat করা (line 45) —
+     SQL injection ঝুঁকি; parameter binding ব্যবহার করা উচিত।
+  7. প্রতিদিন 8 working hour hardcoded — working_hours table-এর
+     office_from/office_to বদলালেও মাঝের দিনগুলো 8 ঘণ্টাই ধরা হবে।
+  8. breach_time = date("Y-m-d h:i:s") — 12-ঘণ্টা format (h), AM/PM
+     নেই, তাই দুপুরের পরের সময় ভুল দেখাবে (H হওয়া উচিত)।
+  9. Script-এর echo message-এ "SMS" লেখা, কিন্তু আসলে এটা email
+     escalation (copy-paste থেকে আসা)।
+ 10. Script বারবার চললেও duplicate হয় না, কারণ threshold প্রতি breach-এ
+     বাড়ে আর 4টার বেশি breach হয় না।

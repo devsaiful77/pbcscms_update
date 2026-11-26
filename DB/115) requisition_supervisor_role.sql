@@ -1,0 +1,2 @@
+INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `is_user`, `is_head`, `guard_name`, `module`, `created_at`, `updated_at`) 
+VALUES (NULL, 'requisitionSupervisor', 'REQ Supervisor', 'Requisition Supervisor', '1', '4', 'web', '2', '2025-04-16 09:11:20', '2025-04-16 09:11:20');

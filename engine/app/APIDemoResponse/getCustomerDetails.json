@@ -1,0 +1,31 @@
+{
+    "data": {
+        "customerId": "2239870",
+        "customerTitle": "TANZILA AHMED PREMA",
+        "customerType": "CONSUMER",
+        "customerEmail": "afreen.shajia2017@gmail.com",
+        "customerPhone": "+8801713201835",
+        "customerDoB": "19820302",
+        "customerNID": "8905331333",
+        "contactAddress1": "HOUSE-52/3B,",
+        "contactAddress2": "AHMED NAGAR, PAIKPARA,",
+        "contactAddress3": "MIRPUR-1, DHAKA,",
+        "contactAddress4": "BANGLADESH.",
+        "fatherName": "MIR NASIR AHMED",
+        "motherName": "NADIRA AHMED",
+        "tinNumber": "",
+        "residence": "BD",
+        "accounts": [
+            {
+                "accountId": "2145216009705",
+                "branchCode": "BD0010219",
+                "branchName": "BHUJPUR SME BRANCH",
+                "accountTitle": "TANZILA AHMED PREMA & SHAJIA AFREEN"
+            }
+        ]
+    },
+    "responseCode": 200,
+    "messages": [
+        "Operation Successful"
+    ]
+}

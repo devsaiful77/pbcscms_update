@@ -1,0 +1,1 @@
+ALTER TABLE `requisition_general_service` ADD `approve_qty` VARCHAR(191) NOT NULL DEFAULT '0' AFTER `quantity`;

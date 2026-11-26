@@ -1,0 +1,1 @@
+INSERT INTO `permissions` (`id`, `controller_name`, `name`, `display_name`, `description`, `guard_name`, `module`, `created_at`, `updated_at`) VALUES (NULL, 'RequUsersController', 'accessRequUsersChecker', 'accessRequUsersChecker', 'access Requisition Users Checker', 'web', '2', '2025-04-21 11:14:55', '2025-04-21 11:14:55');

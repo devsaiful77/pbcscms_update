@@ -1,0 +1,82 @@
+
+.modal-content {
+    background: #0972BC;
+    color: #fff;
+}
+.otp_input {
+    width: 35px;
+    margin: 3px;
+    border-radius: 6px;
+    padding: 10px 5px;
+    text-align: center;
+    border: #fff;
+}
+.verify_btn{
+    width: 150px;
+    border: 1px solid #e3e3e3;
+}
+.verify_btn_cancel {
+    background: #0972BC;
+}
+.modal-header {
+    border-bottom: 1px solid #0c6aad;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color: #e9ecef #e9ecef #dee2e6;
+    isolation: inherit !important;
+}
+.frm_field_bg {
+    background: #eee;
+}
+select.form-select {
+    padding-left: 10px !important;
+}
+.btn-check:focus+.btn-secondary, .btn-secondary:focus {
+    box-shadow: none !important;
+}
+.btn-check:focus+.btn, .btn:focus {
+    box-shadow: none !important;
+}
+.submit_btn {
+    border-radius: 30px !important;
+}
+.a_v_heading{
+    color: #0c6aad;
+}
+.form-select:focus {
+    box-shadow: none !important;
+}
+.frm_input:focus {
+    box-shadow: none !important;
+}
+
+@media (max-width: 575.98px) {
+    .row>* {
+        /*    width: 50% !important;*/
+    }
+    .web_a_verify {
+        display: none;
+    }
+    .select_account {
+        border: 0;
+        border-bottom: 2px solid #eee;
+        border-radius: 0;
+    }
+    .frm_input {
+        border: 0;
+        border-bottom: 2px solid #eee;
+        border-radius: 0;
+    }
+    .e_tin_copy {
+        float: right;
+        width: 107px;
+        border-radius: 0;
+    }
+    .e_tin_b_b {
+        border-bottom: 2px solid #eee;
+    }
+    .submit_btn {
+        border-radius: 30px !important;
+    }
+}

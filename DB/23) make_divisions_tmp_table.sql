@@ -1,0 +1,1 @@
+CREATE TABLE divisions_tmp LIKE divisions;

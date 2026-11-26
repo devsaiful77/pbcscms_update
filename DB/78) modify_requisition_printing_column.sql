@@ -1,0 +1,3 @@
+ALTER TABLE requisition_printing
+MODIFY COLUMN quantity INT NOT NULL DEFAULT 0,
+MODIFY COLUMN approve_qty INT NOT NULL DEFAULT 0;

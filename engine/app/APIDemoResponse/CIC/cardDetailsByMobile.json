@@ -1,0 +1,66 @@
+{
+    "data": {
+        "requestId": "20210128MPP0000056",
+        "responseId": "ES5q7OckLl9w3FRJRQaf",
+        "responseDateTime": "2024-09-17T12:38:42+06:00",
+        "sourceChannel": "MIB",
+        "cardDetails": [
+            {
+                "embossName": "MST JOHURA",
+                "cardHolderName": "MST JOHURA",
+                "cardNumber": "457354xxxxxx0122",
+                "cardType": "JCB",
+                "cardCurrency": "050",
+                "cardStatus": "Cancelled",
+                "plasticStatus": "010",
+                "availableCash": 0.0,
+                "cardOutstandingBalance": 19100.0,
+                "availableBalance": 0.0,
+                "totalLimit": 0,
+                "minPaymentDueAmt": 19100.0,
+                "lastDueAmt": 0.0,
+                "lastDueDate": null,
+                "cardProduct": "900700",
+                "cardProductName": "JCB DUAL PLATINUM TQ EMP",
+                "cardProductType": null,
+                "accountNumber": "170746447",
+                "branchCode": "000111",
+                "dob": "11-Jun-1997",
+                "mobileNumber": "01717637323",
+                "aliasPan": "3565527246537578",
+                "email": "ahmed.sharif@primebank.com.bd",
+                "clientCode": "0364952094"
+            },
+            {
+                "embossName": "ABUL HASNAT SHEIKH SHARIF",
+                "cardHolderName": "ABUL HASNAT SHEIKH SHARIF",
+                "cardNumber": "457354xxxxxx0122",
+                "cardType": "JCB",
+                "cardCurrency": "050",
+                "cardStatus": "SUSPENDED",
+                "plasticStatus": "001",
+                "availableCash": 0.0,
+                "cardOutstandingBalance": 19100.0,
+                "availableBalance": 0.0,
+                "totalLimit": 0,
+                "minPaymentDueAmt": 19100.0,
+                "lastDueAmt": 0.0,
+                "lastDueDate": null,
+                "cardProduct": "900700",
+                "cardProductName": "JCB DUAL PLATINUM TQ EMP",
+                "cardProductType": null,
+                "accountNumber": "2145216009705",
+                "branchCode": "000111",
+                "dob": "08-Mar-1984",
+                "mobileNumber": "01717637323",
+                "aliasPan": "3564679876691208",
+                "email": "ahmed.sharif@primebank.com.bd",
+                "clientCode": "0364952094"
+            }
+        ]
+    },
+    "responseCode": 200,
+    "messages": [
+        "Operation Successful"
+    ]
+}

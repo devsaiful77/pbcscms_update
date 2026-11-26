@@ -1,0 +1,41 @@
+{
+    "data": {
+        "balanceAtPeriodStart": 7166.74,
+        "transactionList": [
+            {
+                "transactionAmount": -1251.00,
+                "transactionNarration": "ATM NPSB FT",
+                "transactionDesc1": "",
+                "transactionDesc2": "iBanking Txn. PRIMEBANK IB",
+                "transactionDesc3": "",
+                "transactionRefNo": "FT202368YFHN\\BNK",
+                "transactionPostDate": "20200819",
+                "transactionChequeNo": null
+            },
+            {
+                "transactionAmount": 5000.00,
+                "transactionNarration": "Cash Deposit",
+                "transactionDesc1": "Motijheel Branch",
+                "transactionDesc2": "",
+                "transactionDesc3": "",
+                "transactionRefNo": "TT202368ABCD\\BNK",
+                "transactionPostDate": "20200821",
+                "transactionChequeNo": null
+            },
+            {
+                "transactionAmount": -2000.00,
+                "transactionNarration": "Cheque Withdrawal",
+                "transactionDesc1": "",
+                "transactionDesc2": "",
+                "transactionDesc3": "",
+                "transactionRefNo": "CW202368WXYZ\\BNK",
+                "transactionPostDate": "20200823",
+                "transactionChequeNo": "1234567"
+            }
+        ]
+    },
+    "messages": [
+        "Operation Successful"
+    ],
+    "responseCode": 200
+}

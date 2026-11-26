@@ -1,0 +1,1 @@
+ALTER TABLE `model_has_roles` ADD `module` TINYINT NOT NULL DEFAULT '1' AFTER `model_id`;

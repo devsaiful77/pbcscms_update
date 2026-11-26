@@ -1,0 +1,14 @@
+{
+    "data": {
+        "successCode": "00000",
+        "successMessage": "SUCCESS",
+        "requestId": "1641886137MBiIE",
+        "responseId": "ZQYM945tumBI",
+        "responseDateTime": "2024-09-03T14:26:17+06:00",
+        "sourceChannel": "MIB"
+    },
+    "responseCode": 200,
+    "messages": [
+        "Operation Successful"
+    ]
+}

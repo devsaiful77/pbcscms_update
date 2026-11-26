@@ -1,0 +1,1 @@
+ALTER TABLE `requisition_sub_categories` ADD COLUMN `sub_category_type` INT NULL DEFAULT NULL  AFTER `sub_category_name`;

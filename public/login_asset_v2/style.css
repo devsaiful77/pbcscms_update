@@ -1,0 +1,114 @@
+body{
+  background-color: #dddfe2;
+}
+
+.login-form-section {
+  height: 100vh;
+  /*background-image: url('img/loginscreen.jpg');*/
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  padding-top: 60px;
+  padding-bottom: 55px;
+}
+.login-form-container {
+  float: left;
+  margin-top: 10rem;
+  background-color: rgba(255,255,255,0.95);
+  padding: 41px 45px 0;
+  box-shadow: 0px 0px 8px -2px #777;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 20px;
+}
+.log-form-headline h3 {
+  margin-top:10px;
+  margin-bottom: 30px;
+}
+.login-form-section form .form-control {
+  border-radius: 0;
+  border:1px solid #177cc0;
+}
+.login-form-section form input {
+  text-indent: 2rem;
+  background-size:20px;
+  background-repeat: no-repeat;
+  background-position: left 5px center;
+  font-size: 16px;
+}
+.login-form-section form input[type=text] {
+  background-image: url('img/user-icon.png');
+}
+.login-form-section form input[type=password] {
+  background-image: url('img/password-icon.png');
+}
+.login-form-section form .sp-note {
+  margin-top: 10px;
+}
+.login-form-section form .btn-submit {
+  border-radius: 0;
+  background-image: linear-gradient(to right, #177cc0 , #747dd8);
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 140px;
+  border: 0 none;
+  outline-offset: 0;
+  outline: 0;
+}
+
+.login-form-section form .btn-submit:focus {
+  border-radius: 0 !important;
+  border: 0 none;
+  outline-offset: 0;
+  outline: 0;
+}
+.credit-ftr {
+  display: block;
+  margin-top: 20px;
+}
+
+/* responsive */
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1601px) and (max-width : 2000px) {
+  .login-form-section {
+    padding-top: 80px;
+    padding-bottom: 217px;
+  }
+}
+@media only screen and (min-width : 1367px) and (max-width : 1600px) {
+  .login-form-section {
+    padding-top: 80px;
+    padding-bottom: 47px;
+  }
+}
+@media only screen and (min-width : 1201px) and (max-width : 1366px) {
+  .login-form-section {
+
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+  .login-form-container {
+    margin-top: 10rem;
+  }
+}
+@media only screen and (max-width : 1200px) {
+  .login-form-section {
+    padding-top: 60px;
+    padding-bottom: 55px;
+  }
+  .login-form-container {
+    margin-top: 15rem;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 767px) {
+  .login-form-container {
+    margin-top: 10rem;
+  }
+}

@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS `complaint_closings` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `reference_number` varchar(25) DEFAULT NULL,
+  `complaint_category` int DEFAULT NULL,
+  `complaint_type` int DEFAULT NULL,
+  `subgroup_id` varchar(55) DEFAULT NULL,
+  `emplist` varchar(55) DEFAULT NULL,
+  `rootcause` text,
+  `actiontaken` text,
+  `amountinvoled` int DEFAULT NULL,
+  `justification` varchar(20) DEFAULT NULL,
+  `massincident` varchar(3) DEFAULT NULL,
+  `impactedcustomer` int DEFAULT NULL,
+  `closenotification` varchar(3) DEFAULT NULL,
+  `closureremarks` text,
+  `customerexpectation` text,
+  `natureofcomp` varchar(200) DEFAULT NULL,
+  `created_by` int DEFAULT NULL,
+  `updated_by` int DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `ip` varchar(45) DEFAULT NULL,
+  `fi_id` varchar(150) DEFAULT NULL,
+  `unreachable` varchar(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `reference_number` (`reference_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=32368 DEFAULT CHARSET=utf8mb3;
+

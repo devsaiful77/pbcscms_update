@@ -1,0 +1,44 @@
+{
+    "data": {
+        "requestId": "20210128MPP0000056",
+        "responseId": "JYalCtBnQAlmORATeswT",
+        "responseDateTime": "2021-09-12T16:09:50+06:00",
+        "sourceChannel": "MIB",
+        "cardNumber": "457354xxxxxx6502",
+        "cardCurrency": null,
+        "cardDetails": [
+            {
+                "embossName": "MD ABID AL MOHAIMIN",
+                "cardType": "Visa",
+                "cardCurrency": "50",
+                "cardStatus": " ",
+                "plasticStatus": " ",
+                "availableCash": 62555.5,
+                "cardOutstandingBalance": 56709.21,
+                "availableBalance": 55647.52,
+                "totalLimit": 100000.0,
+                "minPaymentDueAmt": 6055.92,
+                "lastDueAmt": 55559.21,
+                "lastDueDate": "20210526"
+            },
+            {
+                "embossName": "MD ABID AL MOHAIMIN",
+                "cardType": "Visa",
+                "cardCurrency": "840",
+                "cardStatus": " ",
+                "plasticStatus": " ",
+                "availableCash": 2630.19,
+                "cardOutstandingBalance": -0.14,
+                "availableBalance": 3380.19,
+                "totalLimit": 1500.0,
+                "minPaymentDueAmt": 0.0,
+                "lastDueAmt": -0.14,
+                "lastDueDate": "20210526"
+            }
+        ]
+    },
+    "responseCode": 200,
+    "messages": [
+        "Operation Successful"
+    ]
+}

@@ -1,0 +1,1 @@
+ALTER TABLE `requisition_items` ADD `unit_price` FLOAT NULL DEFAULT NULL AFTER `unit_id`;

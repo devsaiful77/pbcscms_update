@@ -1,0 +1,1 @@
+INSERT INTO `permissions` (`controller_name`, `name`, `display_name`, `description`, `guard_name`, `module`, `created_at`, `updated_at`) VALUES ('RequisitionController', 'accessRequisitionManagement', 'access requisition management', 'access requisition management', 'web', 2, '2025-05-21 18:12:54', '2025-05-21 18:12:54');

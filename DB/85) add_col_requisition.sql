@@ -1,0 +1,2 @@
+ALTER TABLE requisition
+ADD COLUMN is_sendback TINYINT NOT NULL DEFAULT 0 AFTER status;

@@ -1,0 +1,1 @@
+ALTER TABLE `permissions` ADD `module` TINYINT NULL DEFAULT '1' AFTER `guard_name`;

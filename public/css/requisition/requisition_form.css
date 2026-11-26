@@ -1,0 +1,50 @@
+.select2-container .select2-selection--single {
+    height: 32px !important;
+    padding: 5px 10px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 21px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 30px !important;
+}
+
+fieldset.border {
+    border: 2px solid #03427e !important;
+    border-radius: 5px !important;
+}
+
+
+/* table.table {
+    border: 2px solid rgb(214 214 214) !important;
+} */
+
+/* table.table th,
+table.table td {
+    border: 1px solid rgb(0, 0, 0) !important;
+} */
+
+legend {
+    font-weight: bold;
+    font-size: 1rem;
+}
+.custom-border,
+.custom-border th,
+.custom-border td {
+    border: 1px solid #ddd !important;
+}
+
+div.scheduler-border {
+    font-size: 12px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.mfp-bg {
+    z-index: 999998 !important;
+}
+.mfp-wrap {
+    z-index: 999999 !important;
+}

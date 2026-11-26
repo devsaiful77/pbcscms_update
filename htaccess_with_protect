@@ -1,0 +1,63 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+    RewriteCond %{HTTP_USER_AGENT} ;\sms-office(\)|;)
+    RewriteRule .* - [R=200,L]
+
+    # Disable index view
+    Options All -Indexes
+
+    # Security Headers
+    <IfModule mod_headers.c>
+        # Enforce HTTPS
+        Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+        # Prevent Clickjacking
+        Header always set X-Frame-Options "SAMEORIGIN"
+
+        # Prevent MIME-type sniffing
+        Header always set X-Content-Type-Options "nosniff"
+
+        # Protect against XSS
+        Header always set X-XSS-Protection "1; mode=block"
+
+        # Referrer Policy
+        Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+        # Content Security Policy (CSP)
+        Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: blob:; object-src 'none';"
+
+        # Secure Cookies with HttpOnly and Secure flags
+        Header always edit Set-Cookie ^(.*)$ "$1; Secure; HttpOnly; SameSite=Strict"
+
+        # Remove Server Signature
+        Header always unset X-Powered-By
+        Header always unset Server
+
+        # Disable Caching
+        Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header always set Pragma "no-cache"
+    </IfModule>
+
+    # Disable access to sensitive files
+    <FilesMatch "(^\.htaccess|\.env|\.gitignore|composer\.(json|lock)|phpunit\.xml)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>

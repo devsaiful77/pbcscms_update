@@ -1,0 +1,1 @@
+ALTER TABLE `users_tmp` ADD `module` TINYINT NOT NULL DEFAULT '1' AFTER `created_by`;
